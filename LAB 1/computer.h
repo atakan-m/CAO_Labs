@@ -1,6 +1,5 @@
 #include "program.h"
 
-
 class Computer {
 private:
     
@@ -17,5 +16,10 @@ public:
     
     double calculateGlobalCPI() ;
 
-    double calculateExecutionTime(Program);
+    double calculateExecutionTime(Program prog);
+
+    double calculateMIPS(Program prog);
+
+    double calculateMIPSSpecific(Program prog);
+
 };

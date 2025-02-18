@@ -1,3 +1,7 @@
+#ifndef PROGRAM_H
+#define PROGRAM_H
+
+
 class Program {
     private:
         
@@ -11,11 +15,21 @@ class Program {
         Program(int, int, int, int);
 
         Program(int, double, double, double);
+
+        double calculateNumTotaldouble(); 
+
+        int getnumArith() ;
+
+        int getnumStore() ;
+
+        int getnumLoad() ;
+
+        int getnumBranch() ;
         
         void printStats() ;
         
         int calculateNumTotal() ;
 
-        double calculateNumTotaldouble(); 
 
     };
+ #endif

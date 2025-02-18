@@ -23,4 +23,19 @@ double Program::calculateNumTotaldouble(){
     return ( numArith+  numStore+ numLoad  + numBranch ); //  Calculation
 }
 
+int Program::getnumArith() {
+    return numArith;
+}
+
+int Program::getnumStore() {
+    return numStore;
+}
+
+int Program::getnumLoad() {
+    return numLoad;
+}
+
+int Program::getnumBranch() {
+    return numBranch;
+}
 
