@@ -1,13 +1,7 @@
-// computer.h - Header File
-// This file contains the definition of the Computer class
 
-#ifndef COMPUTER_H
-#define COMPUTER_H
-
-// Define the Computer class
 class Computer {
 private:
-    // Private data members (only accessible within the class)
+    
     double clockRateGHz; // Clock rate in GHz
     double cpiArith;     // CPI of arithmetic instructions
     double cpiStore;     // CPI of store instructions
@@ -15,14 +9,9 @@ private:
     double cpiBranch;    // CPI of branch instructions
 
 public:
-    // Constructor to initialize all attributes
     Computer(double, double, double, double, double);
     
-    // Member function to print statistics of the computer
-    void printStats() const;
+    void printStats() ;
     
-    // Member function to calculate the global CPI
-    double calculateGlobalCPI() const;
+    double calculateGlobalCPI() ;
 };
-
-#endif // COMPUTER_H
