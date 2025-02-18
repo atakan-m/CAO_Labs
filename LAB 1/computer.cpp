@@ -15,5 +15,5 @@ void Computer::printStats() const {
 }
 
 double Computer::calculateGlobalCPI() const {
-    return (cpiArith + cpiStore + cpiLoad + cpiBranch) / 4; // Example calculation
+    return (cpiArith + cpiStore + cpiLoad + cpiBranch) / 4; //  Calculation
 }
