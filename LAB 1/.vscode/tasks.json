@@ -2,15 +2,35 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build and Run C++",
+            "label": "Build C++ Project",
             "type": "shell",
-            "command": "g++ -g main.cpp computer.cpp -o computer && ./computer",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-std=c++17",
+                "-g",
+                "main.cpp",
+                "Computer.cpp",
+                "Program.cpp",
+                "-o",
+                "main"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "problemMatcher": ["$gcc"],
-            "detail": "Compile and run C++ program"
+            "detail": "Compile the entire C++ project."
+        },
+        {
+            "label": "Run C++ Executable",
+            "type": "shell",
+            "command": "./main",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "Run the compiled C++ executable."
         }
     ]
 }

@@ -2,12 +2,32 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Debug C++ Project",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/main",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "Build C++ Project"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/at/LAB 1",
-      "program": "/Users/at/LAB 1/build/Debug/outDebug"
+      "cwd": "/Users/at/Documents/GitHub/CAO_Labs/LAB 1",
+      "program": "/Users/at/Documents/GitHub/CAO_Labs/LAB 1/build/Debug/outDebug"
     }
   ]
 }
