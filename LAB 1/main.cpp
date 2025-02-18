@@ -3,8 +3,8 @@
 
 int main() {
     // Create two Computer objects with different specifications
-    Computer comp1(3.5, 16, 512, 15.6, 2.1, 200, 150, 300, 100);
-    Computer comp2(2.8, 8, 256, 14.0, 1.8, 180, 120, 280, 90);
+    Computer comp1(3.5, 2.0, 3.0, 2.5, 1.8);
+    Computer comp2(2.8, 2.2, 3.2, 2.6, 2.0);
 
     // Print stats and calculate Global CPI for first computer
     std::cout << "Computer 1:\n";

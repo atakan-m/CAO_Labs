@@ -1,6 +1,5 @@
 // computer.h - Header File
 // This file contains the definition of the Computer class
-// It includes private data members and public member functions
 
 #ifndef COMPUTER_H
 #define COMPUTER_H
@@ -9,20 +8,15 @@
 class Computer {
 private:
     // Private data members (only accessible within the class)
-    double cpuSpeed;   // CPU speed in GHz
-    double ramSize;    // RAM size in GB
-    double storage;    // Storage size in GB
-    double screenSize; // Screen size in inches
-    double weight;     // Weight of the computer in kg
-    int numArith;      // Number of arithmetic instructions
-    int numStore;      // Number of store instructions
-    int numLoad;       // Number of load instructions
-    int numBranch;     // Number of branch instructions
-    int numTotal;      // Total number of instructions
+    double clockRateGHz; // Clock rate in GHz
+    double cpiArith;     // CPI of arithmetic instructions
+    double cpiStore;     // CPI of store instructions
+    double cpiLoad;      // CPI of load instructions
+    double cpiBranch;    // CPI of branch instructions
 
 public:
     // Constructor to initialize all attributes
-    Computer(double, double, double, double, double, int, int, int, int);
+    Computer(double, double, double, double, double);
     
     // Member function to print statistics of the computer
     void printStats() const;
