@@ -1,3 +1,5 @@
+#include "program.h"
+
 
 class Computer {
 private:
@@ -14,4 +16,6 @@ public:
     void printStats() ;
     
     double calculateGlobalCPI() ;
+
+    double calculateExecutionTime(Program);
 };

@@ -4,11 +4,14 @@
 
     int main() {
         // 2 different computer specifications
-        Computer comp1(4.5, 2.0, 3.0, 2.5,3.7);
-        Computer comp2(3, 2.5, 3.2, 2.6, 2.3);
+        Computer comp1(1, 2, 3, 3, 4);
+        Computer comp2(1.2, 2, 3, 4, 3);
+        Computer comp3(2, 2, 2, 4, 6);
 
-        Program prog1(4, 2, 3, 2);
-        Program prog2(3, 2.4, 3.5, 2.4);
+        Program prog1(2000, 100, 100, 50);
+        Program prog2(0.1, 0.4, .25, 2.4);
+        Program prog3(500, 100, 2000, 200);
+        
 
         std::cout << "Computer 1:" << std::endl;
         comp1.printStats();
@@ -17,6 +20,10 @@
         std::cout << "Computer 2" << std::endl;
         comp2.printStats();
         std::cout << "Global CPI: " << comp2.calculateGlobalCPI() << "\n\n";
+
+        std::cout << "Computer 2" << std::endl;
+        comp3.printStats();
+        std::cout << "Global CPI: " << comp3.calculateGlobalCPI() << "\n\n";
 
         std::cout << "Program 1:\n";
         prog1.printStats();
