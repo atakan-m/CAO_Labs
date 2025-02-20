@@ -10,17 +10,17 @@ Program::Program(int total, double fracArith, double fracStore, double fracLoad)
     numArith = total * fracArith;
     numStore = total * fracStore;
     numLoad  = total * fracLoad;
-    numBranch = total - (numArith + numStore + numLoad);
+    numBranch = total - (numArith + numStore + numLoad); // calculations for branch toatl
     numTotal = total;
 }
 
-int Program::getNumArith() const { return numArith; }
-int Program::getNumStore() const { return numStore; }
-int Program::getNumLoad() const { return numLoad; }
-int Program::getNumBranch() const { return numBranch; }
-int Program::getTotalInstructions() const { return numTotal; }
+int Program::getNumArith() { return numArith; }
+int Program::getNumStore() { return numStore; }
+int Program::getNumLoad() { return numLoad; }
+int Program::getNumBranch() { return numBranch; }
+int Program::getTotalInstructions() { return numTotal; }
 
-void Program::printStats() const {
+void Program::printStats()  {
     std::cout << "Arith: " << numArith << "\n"
               << "Store: " << numStore << "\n"
               << "Load: " << numLoad << "\n"

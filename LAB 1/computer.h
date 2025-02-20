@@ -11,7 +11,7 @@ private:
 public:
     Computer(double, double, double, double, double);
 
-    void printStats() const;
+    void printStats() ;
     
     double calculateGlobalCPI() ;
     double calculateExecutionTime(Program prog) ;

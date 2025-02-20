@@ -11,13 +11,13 @@ public:
     // Overloaded constructor: total instructions and fractions for arith, store, load (branch is remainder)
     Program(int, double, double, double);
 
-    int getNumArith() const;
-    int getNumStore() const;
-    int getNumLoad() const;
-    int getNumBranch() const;
-    int getTotalInstructions() const;
+    int getNumArith() ;
+    int getNumStore() ;
+    int getNumLoad() ;
+    int getNumBranch() ;
+    int getTotalInstructions() ;
 
-    void printStats() const;
+    void printStats() ;
 };
 
 #endif

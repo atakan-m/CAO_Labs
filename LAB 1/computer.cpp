@@ -5,7 +5,7 @@
 Computer::Computer(double clockRate, double arithCPI, double storeCPI, double loadCPI, double branchCPI)
     : clockRateGHz(clockRate), cpiArith(arithCPI), cpiStore(storeCPI), cpiLoad(loadCPI), cpiBranch(branchCPI) {}
 
-void Computer::printStats() const {
+void Computer::printStats()  {
     std::cout << "Clock Rate: " << clockRateGHz << " GHz\n"
               << "CPI Arithmetic: " << cpiArith << "\n"
               << "CPI Store: " << cpiStore << "\n"
@@ -13,23 +13,23 @@ void Computer::printStats() const {
               << "CPI Branch: " << cpiBranch << "\n";
 }
 
-// ✅ Fix: Ensures correct global CPI calculation
+// GLOBAL CPI CALC
 double Computer::calculateGlobalCPI()  {
-    return (cpiArith + cpiStore + cpiLoad + cpiBranch) / 4.0;  // Ensure division by double
+    return (cpiArith + cpiStore + cpiLoad + cpiBranch) / 4.0;  
 }
 
-// ✅ Fix: Correct formula for global MIPS
+// GLOBAL MIPS
 double Computer::calculateMIPS() {
     double globalCPI = calculateGlobalCPI();
     return (clockRateGHz * 1e9) / (globalCPI * 1e6);  // Convert Hz to MIPS
 }
 
-// ✅ Fix: Correct formula for program-specific MIPS
+// Program Specific Mips
 double Computer::calculateMIPS( Program prog)  {
     double totalInstructions = prog.getTotalInstructions();
     if (totalInstructions == 0) return 0;
 
-    // Compute weighted CPI based on the program's instruction mix
+    // Weighted CPI
     double weightedCPI =
         ((prog.getNumArith() * cpiArith) +
          (prog.getNumStore() * cpiStore) +
@@ -45,7 +45,7 @@ double Computer::calculateMIPS( Program prog)  {
     return totalInstructions / (executionTime * 1e6);
 }
 
-// ✅ Correct execution time calculation
+// Execution time 
 double Computer::calculateExecutionTime( Program prog)  {
     double totalInstructions = prog.getTotalInstructions();
     if (totalInstructions == 0) return 0;  
