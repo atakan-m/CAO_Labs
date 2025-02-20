@@ -1,25 +1,22 @@
+#ifndef COMPUTER_H
+#define COMPUTER_H
+
 #include "program.h"
 
 class Computer {
 private:
-    
-    double clockRateGHz; // Clock rate in GHz
-    double cpiArith;     // CPI of arithmetic instructions
-    double cpiStore;     // CPI of store instructions
-    double cpiLoad;      // CPI of load instructions
-    double cpiBranch;    // CPI of branch instructions
+    double clockRateGHz;
+    double cpiArith, cpiStore, cpiLoad, cpiBranch;
 
 public:
     Computer(double, double, double, double, double);
-    
-    void printStats() ;
+
+    void printStats() const;
     
     double calculateGlobalCPI() ;
-
-    double calculateExecutionTime(Program prog);
-
-    double calculateMIPS(Program prog);
-
-    double calculateMIPSSpecific(Program prog);
-
+    double calculateExecutionTime(Program prog) ;
+    double calculateMIPS() ;
+    double calculateMIPS(Program prog) ;
 };
+
+#endif

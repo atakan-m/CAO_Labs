@@ -1,41 +1,29 @@
 #include "program.h"
 #include <iostream>
 
-Program::Program(int numArith, int numStore, int numLoad, int numBranch)
-    : numArith(numArith), numStore(numStore), numLoad(numLoad), numBranch(numBranch) {}
-    
-Program::Program(int numArith, double numStore, double numLoad, double numBranch)
-    : numArith(numArith), numStore(numStore), numLoad(numLoad), numBranch(numBranch) {}
-
-    
-void Program::printStats(){
-    std::cout << "Arith: " << numArith << " \n";
-    std::cout << "Store: " << numStore << "\n";
-    std::cout << "Load: " << numLoad << "\n";
-    std::cout << "Branch: " << numBranch << "\n";
+Program::Program(int arith, int store, int load, int branch)
+    : numArith(arith), numStore(store), numLoad(load), numBranch(branch) {
+    numTotal = numArith + numStore + numLoad + numBranch;
 }
 
-int Program::calculateNumTotal(){
-    return ( numArith+  numStore+ numLoad  + numBranch ); //  Calculation
+Program::Program(int total, double fracArith, double fracStore, double fracLoad) {
+    numArith = total * fracArith;
+    numStore = total * fracStore;
+    numLoad  = total * fracLoad;
+    numBranch = total - (numArith + numStore + numLoad);
+    numTotal = total;
 }
 
-double Program::calculateNumTotaldouble(){
-    return ( numArith+  numStore+ numLoad  + numBranch ); //  Calculation
-}
+int Program::getNumArith() const { return numArith; }
+int Program::getNumStore() const { return numStore; }
+int Program::getNumLoad() const { return numLoad; }
+int Program::getNumBranch() const { return numBranch; }
+int Program::getTotalInstructions() const { return numTotal; }
 
-int Program::getnumArith() {
-    return numArith;
+void Program::printStats() const {
+    std::cout << "Arith: " << numArith << "\n"
+              << "Store: " << numStore << "\n"
+              << "Load: " << numLoad << "\n"
+              << "Branch: " << numBranch << "\n"
+              << "Total: " << numTotal << "\n";
 }
-
-int Program::getnumStore() {
-    return numStore;
-}
-
-int Program::getnumLoad() {
-    return numLoad;
-}
-
-int Program::getnumBranch() {
-    return numBranch;
-}
-

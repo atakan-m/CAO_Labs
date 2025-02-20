@@ -2,47 +2,55 @@
 #include "program.h"
 #include <iostream>
 
-
 Computer::Computer(double clockRate, double arithCPI, double storeCPI, double loadCPI, double branchCPI)
     : clockRateGHz(clockRate), cpiArith(arithCPI), cpiStore(storeCPI), cpiLoad(loadCPI), cpiBranch(branchCPI) {}
 
-
-void Computer::printStats(){
-    std::cout << "Clock Rate: " << clockRateGHz << " GHz\n";
-    std::cout << "CPI Arithmetic: " << cpiArith << "\n";
-    std::cout << "CPI Store: " << cpiStore << "\n";
-    std::cout << "CPI Load: " << cpiLoad << "\n";
-    std::cout << "CPI Branch: " << cpiBranch << "\n";
+void Computer::printStats() const {
+    std::cout << "Clock Rate: " << clockRateGHz << " GHz\n"
+              << "CPI Arithmetic: " << cpiArith << "\n"
+              << "CPI Store: " << cpiStore << "\n"
+              << "CPI Load: " << cpiLoad << "\n"
+              << "CPI Branch: " << cpiBranch << "\n";
 }
 
-double Computer::calculateGlobalCPI(){
-    return (cpiArith + cpiStore + cpiLoad + cpiBranch) / 4; //  Calculation
+// ✅ Fix: Ensures correct global CPI calculation
+double Computer::calculateGlobalCPI()  {
+    return (cpiArith + cpiStore + cpiLoad + cpiBranch) / 4.0;  // Ensure division by double
 }
 
-double Computer::calculateMIPSSpecific(Program prog){
-        double MIPS1 = (cpiArith * prog.getnumArith())/ clockRateGHz;
-        double MIPS2 = (cpiStore * prog.getnumStore())/ clockRateGHz;
-        double MIPS3 = (cpiLoad * prog.getnumLoad())/ clockRateGHz;
-        double MIPS4 = (cpiBranch * prog.getnumBranch())/ clockRateGHz;
-        return (MIPS1 + MIPS2 + MIPS3 + MIPS4);
-    
-}
-     
-
-double Computer::calculateExecutionTime(Program prog) {
+// ✅ Fix: Correct formula for global MIPS
+double Computer::calculateMIPS() {
     double globalCPI = calculateGlobalCPI();
-    double totalInstructions = prog.getnumArith() + prog.getnumStore() + prog.getnumLoad() + prog.getnumBranch();
-
-    double totalCycles = totalInstructions * globalCPI;
-    return totalCycles / (clockRateGHz * 1e9);  // Convert GHz to Hz for execution time
+    return (clockRateGHz * 1e9) / (globalCPI * 1e6);  // Convert Hz to MIPS
 }
 
-double Computer::calculateMIPS(Program prog) {
+// ✅ Fix: Correct formula for program-specific MIPS
+double Computer::calculateMIPS( Program prog)  {
+    double totalInstructions = prog.getTotalInstructions();
+    if (totalInstructions == 0) return 0;
+
+    // Compute weighted CPI based on the program's instruction mix
+    double weightedCPI =
+        ((prog.getNumArith() * cpiArith) +
+         (prog.getNumStore() * cpiStore) +
+         (prog.getNumLoad() * cpiLoad) +
+         (prog.getNumBranch() * cpiBranch)) / totalInstructions;
+
+    // Compute execution time using weighted CPI
+    double totalCycles = totalInstructions * weightedCPI;
+    double executionTime = totalCycles / (clockRateGHz * 1e9); // Convert GHz to Hz
+
+    if (executionTime == 0) return 0;
+
+    return totalInstructions / (executionTime * 1e6);
+}
+
+// ✅ Correct execution time calculation
+double Computer::calculateExecutionTime( Program prog)  {
+    double totalInstructions = prog.getTotalInstructions();
+    if (totalInstructions == 0) return 0;  
+
     double globalCPI = calculateGlobalCPI();
-    double totalInstructions = prog.getnumArith() + prog.getnumStore() + prog.getnumLoad() + prog.getnumBranch();
-
     double totalCycles = totalInstructions * globalCPI;
-    double executiontime = totalCycles / (clockRateGHz * 1e9);  // Convert GHz to Hz for execution time
-    return totalInstructions/ (executiontime * 1000000);
+    return totalCycles / (clockRateGHz * 1e9);  // Convert GHz to Hz
 }
-

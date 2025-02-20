@@ -1,35 +1,23 @@
 #ifndef PROGRAM_H
 #define PROGRAM_H
 
-
 class Program {
-    private:
-        
-        double numArith; // Clock rate in GHz
-        double numStore;     // CPI of arithmetic instructions
-        double numLoad;     // CPI of store instructions
-        double numBranch;      // CPI of load instructions
-        double numTotal;    // CPI of branch instructions
-    
-    public:
-        Program(int, int, int, int);
+private:
+    int numArith, numStore, numLoad, numBranch, numTotal;
 
-        Program(int, double, double, double);
+public:
+    // Constructor for direct instruction counts
+    Program(int, int, int, int);
+    // Overloaded constructor: total instructions and fractions for arith, store, load (branch is remainder)
+    Program(int, double, double, double);
 
-        double calculateNumTotaldouble(); 
+    int getNumArith() const;
+    int getNumStore() const;
+    int getNumLoad() const;
+    int getNumBranch() const;
+    int getTotalInstructions() const;
 
-        int getnumArith() ;
+    void printStats() const;
+};
 
-        int getnumStore() ;
-
-        int getnumLoad() ;
-
-        int getnumBranch() ;
-        
-        void printStats() ;
-        
-        int calculateNumTotal() ;
-
-
-    };
- #endif
+#endif
