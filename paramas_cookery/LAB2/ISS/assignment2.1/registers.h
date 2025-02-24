@@ -13,25 +13,42 @@ public:
 
 
 			};
-//private:
-	//static const int totREGS = 31;
 	Register reg[31];
 
-//public:
-	void fillRegs(){
-		for (int i = 0; i < 31; i++) {
-		reg[i] = Register(i,i);
-		//std::cout << "iteration called:" << i << std::endl; 
-		}	
+
+	void setRegister(int a, int b){
+		reg[a] = Register(a,b);
+		
 	}
-	void printRegnums(){
+
+	int getRegister(int a){
+		return reg[a].value;
+	}
+
+	class ProgramCounter{
+		public: 
+			int counter;
+	};
+
+	ProgramCounter PC;
+
+	void setPC (int a){
+		PC.counter = a;
+	}
+
+	int getPC(){
+		return PC.counter;
+	}
+
+	void print(){
 		for (int i = 0; i < 31; i++) {
-		std::cout << reg[i].regNum << std::endl; 
-		}	
+		std::cout << "register: " << i << " has regNum: " 
+		<< reg[i].regNum << " and value: "<< reg[i].value << std::endl; 
+		}
+		std::cout << "PC is at: " << PC.counter << std::endl;
 	}
 
 
-	//void setRegister(int regNum, int value);
 	//int getRegister(int regNum);
 	//void setPC(int value);
 	//int getPC();
