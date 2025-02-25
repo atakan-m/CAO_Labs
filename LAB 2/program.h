@@ -1,16 +1,29 @@
-#ifndef PROGRAM_H
-#define PROGRAM_H
-#include "derived_instructions.h"
+#ifndef _PROGRAM_H_
+#define _PROGRAM_H_
+
 #include <vector>
-#include <memory>
+#include "instruction.h"
 
 class Program {
 private:
-    std::vector<std::unique_ptr<Instruction>> instructions;
+    std::vector<Instruction*> instructions;
+
 public:
-    void appendInstruction(std::unique_ptr<Instruction> instr);
-    void disassemble() const;
-    void execute(Registers &regs);
+    void addInstruction(Instruction* instr) {
+        instructions.push_back(instr);
+    }
+
+    void disassemble() {
+        for (auto instr : instructions) {
+            instr->disassemble();
+        }
+    }
+
+    void execute(Registers *regs) {
+        for (auto instr : instructions) {
+            regs->setPC(instr->execute(regs));
+        }
+    }
 };
 
-#endif 
+#endif  /* _PROGRAM_H_ */

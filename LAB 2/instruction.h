@@ -1,16 +1,13 @@
-#ifndef INSTRUCTION_H
-#define INSTRUCTION_H
+#ifndef _INSTRUCTION_H_
+#define _INSTRUCTION_H_
+
 #include "registers.h"
-#include <memory>
 
 class Instruction {
-protected:
-    int rd, rs, rt, imm;
 public:
-    Instruction(int rd, int rs, int rt, int imm = 0);
     virtual ~Instruction() {}
-    virtual void disassemble() const = 0;
-    virtual int execute(Registers &regs) = 0;
+    virtual void disassemble() = 0;
+    virtual int execute(Registers *regs) = 0;
 };
 
-#endif
+#endif  /* _INSTRUCTION_H_ */
