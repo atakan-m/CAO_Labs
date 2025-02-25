@@ -1,34 +1,25 @@
 #include "instruction.h"
 #include <iostream>
 
-class AddInstruction : public Instruction {
-private:
-    int dest, src1, src2;
-public:
-    AddInstruction(int d, int s1, int s2) : dest(d), src1(s1), src2(s2) {}
+// Define AddInstruction
+AddInstruction::AddInstruction(int d, int s1, int s2) : dest(d), src1(s1), src2(s2) {}
 
-    void disassemble() override {
-        std::cout << "add $" << dest << ", $" << src1 << ", $" << src2 << std::endl;
-    }
+void AddInstruction::disassemble() {
+    std::cout << "add $" << dest << ", $" << src1 << ", $" << src2 << std::endl;
+}
 
-    int execute(Registers *regs) override {
-        regs->setRegister(dest, regs->getRegister(src1) + regs->getRegister(src2));
-        return regs->getPC() + 1;
-    }
-};
+int AddInstruction::execute(Registers *regs) {
+    regs->setRegister(dest, regs->getRegister(src1) + regs->getRegister(src2));
+    return regs->getPC() + 1;  // ✅ Ensure it increments properly!
+}
+// Define SubInstruction
+SubInstruction::SubInstruction(int d, int s1, int s2) : dest(d), src1(s1), src2(s2) {}
 
-class SubInstruction : public Instruction {
-private:
-    int dest, src1, src2;
-public:
-    SubInstruction(int d, int s1, int s2) : dest(d), src1(s1), src2(s2) {}
+void SubInstruction::disassemble() {
+    std::cout << "sub $" << dest << ", $" << src1 << ", $" << src2 << std::endl;
+}
 
-    void disassemble() override {
-        std::cout << "sub $" << dest << ", $" << src1 << ", $" << src2 << std::endl;
-    }
-
-    int execute(Registers *regs) override {
-        regs->setRegister(dest, regs->getRegister(src1) - regs->getRegister(src2));
-        return regs->getPC() + 1;
-    }
-};
+int SubInstruction::execute(Registers *regs) {
+    regs->setRegister(dest, regs->getRegister(src1) - regs->getRegister(src2));
+    return regs->getPC() + 1;  // ✅ Must correctly increment PC!
+}

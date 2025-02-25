@@ -9,13 +9,8 @@ private:
     Program program;
 
 public:
-    void loadProgram(Program p) {
-        program = p;
-    }
-    void run() {
-        program.execute(&regs);
-        regs.print();
-    }
+    void loadProgram(Program p);  // Only declare here, no `{}`!
+    void run();  // Only declare here, no `{}`!
 };
 
 #endif  /* _SIMULATOR_H_ */
