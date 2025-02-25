@@ -45,5 +45,8 @@ void BrneInstruction::disassemble() {
 }
 
 int BrneInstruction::execute(Registers *regs) {
-    return (regs->getRegister(src1) != regs->getRegister(src2)) ? regs->getPC() + offset : regs->getPC() + 1;
+    if (regs->getRegister(src1) != regs->getRegister(src2)) {
+        return regs->getPC() + offset;  // Jump back to loop
+    }
+    return regs->getPC() + 1;  // Continue normally
 }
