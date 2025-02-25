@@ -1,5 +1,6 @@
 #include "program.h"
 #include <iostream>
+#include <memory>
 
 void Program::appendInstruction(std::unique_ptr<Instruction> instr) {
     instructions.push_back(std::move(instr));

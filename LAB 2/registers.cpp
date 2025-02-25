@@ -1,4 +1,10 @@
 #include "registers.h"
+#include <memory>
+
+Registers::Registers() {
+    for (int i = 0; i < 32; i++) reg[i] = 0;
+    PC = 0;
+}
 
 void Registers::setRegister(int regNum, int value) {
     if (regNum != 0)

@@ -1,8 +1,7 @@
-
-// File: instruction.h
 #ifndef INSTRUCTION_H
 #define INSTRUCTION_H
 #include "registers.h"
+#include <memory>
 
 class Instruction {
 protected:
@@ -14,4 +13,4 @@ public:
     virtual int execute(Registers &regs) = 0;
 };
 
-#endif // INSTRUCTION_H
+#endif

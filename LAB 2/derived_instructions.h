@@ -1,6 +1,8 @@
 #ifndef DERIVED_INSTRUCTIONS_H
 #define DERIVED_INSTRUCTIONS_H
-#include "instruction.h"
+
+#include "instruction.h"  // ✅ Ensure this is included
+#include <memory>         // ✅ Ensure this is included
 
 class AddInstruction : public Instruction {
 public:

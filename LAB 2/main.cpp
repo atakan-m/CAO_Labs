@@ -1,5 +1,8 @@
-#include "program.h"
 #include <iostream>
+#include <memory>
+#include "program.h"
+#include "derived_instructions.h"
+#include "registers.h"
 
 int main() {
     Registers regs;
