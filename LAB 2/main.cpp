@@ -1,18 +1,21 @@
 #include "program.h"
-#include "instruction.h"  // Only include header file, NOT CPP file
+#include "instruction.h"
 #include <iostream>
+
 
 int main() {
     Registers regs;
     Program program;
 
-    // Manually setting initial register values
-    regs.setRegister(2, 10);
-    regs.setRegister(3, 5);
+    // Load MIPS Program into C++ Simulator
+    program.addInstruction(new OriInstruction(1, 0, 12));  // $1 = 12
+    program.addInstruction(new OriInstruction(2, 0, 4));   // $2 = 4
+    program.addInstruction(new OriInstruction(3, 0, 1));   // $3 = 1
 
-    // Add instructions to the program
-    program.addInstruction(new AddInstruction(1, 2, 3));  // $1 = $2 + $3 (10 + 5)
-    program.addInstruction(new SubInstruction(4, 2, 3));  // $4 = $2 - $3 (10 - 5)
+    // Loop: 
+    program.addInstruction(new AddInstruction(4, 4, 1));   // $4 += $1
+    program.addInstruction(new SubInstruction(2, 2, 3));   // $2 -= $3
+    program.addInstruction(new BrneInstruction(2, 0, -2)); // If $2 != 0, go back 2 instructions (loop)
 
     // Debugging: Print PC before execution
     std::cout << "Before Execution, PC: " << regs.getPC() << std::endl;

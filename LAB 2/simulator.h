@@ -9,8 +9,10 @@ private:
     Program program;
 
 public:
-    void loadProgram(Program p);  // Only declare here, no `{}`!
-    void run();  // Only declare here, no `{}`!
+    void loadProgram(Program p) {
+        program = p;
+    }
+    void run();
 };
 
 #endif  /* _SIMULATOR_H_ */

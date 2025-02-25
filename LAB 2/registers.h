@@ -14,6 +14,8 @@ public:
 
     Register reg[31];
 
+    Registers();  // Constructor to initialize registers
+
     void setRegister(int a, int b);
     int getRegister(int a);
 

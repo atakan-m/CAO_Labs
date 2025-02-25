@@ -30,4 +30,24 @@ public:
     int execute(Registers *regs) override;
 };
 
+// Declare OriInstruction
+class OriInstruction : public Instruction {
+private:
+    int dest, src, imm;
+public:
+    OriInstruction(int d, int s, int i);
+    void disassemble() override;
+    int execute(Registers *regs) override;
+};
+
+// Declare BrneInstruction
+class BrneInstruction : public Instruction {
+private:
+    int src1, src2, offset;
+public:
+    BrneInstruction(int s1, int s2, int off);
+    void disassemble() override;
+    int execute(Registers *regs) override;
+};
+
 #endif  /* _INSTRUCTION_H_ */

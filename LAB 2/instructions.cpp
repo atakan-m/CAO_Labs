@@ -10,8 +10,9 @@ void AddInstruction::disassemble() {
 
 int AddInstruction::execute(Registers *regs) {
     regs->setRegister(dest, regs->getRegister(src1) + regs->getRegister(src2));
-    return regs->getPC() + 1;  // ✅ Ensure it increments properly!
+    return regs->getPC() + 1;
 }
+
 // Define SubInstruction
 SubInstruction::SubInstruction(int d, int s1, int s2) : dest(d), src1(s1), src2(s2) {}
 
@@ -21,5 +22,5 @@ void SubInstruction::disassemble() {
 
 int SubInstruction::execute(Registers *regs) {
     regs->setRegister(dest, regs->getRegister(src1) - regs->getRegister(src2));
-    return regs->getPC() + 1;  // ✅ Must correctly increment PC!
+    return regs->getPC() + 1;
 }
