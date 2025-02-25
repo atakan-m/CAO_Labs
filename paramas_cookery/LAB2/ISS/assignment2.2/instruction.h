@@ -1,13 +1,13 @@
 #ifndef _INSTRUCTION_H_
 #define _INSTRUCTION_H_
 
+#include <iostream>
 #include "registers.h"
 
-class Instruction {
-public:
-    virtual ~Instruction() {}
-    virtual void disassemble() = 0;
-    virtual int execute(Registers *regs) = 0;
+using namespace std;
+
+class Instruction
+{
 };
 
-#endif  /* _INSTRUCTION_H_ */
+#endif /* _INSTRUCTION_H_ */
