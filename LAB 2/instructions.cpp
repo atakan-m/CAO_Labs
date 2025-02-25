@@ -45,8 +45,14 @@ void BrneInstruction::disassemble() {
 }
 
 int BrneInstruction::execute(Registers *regs) {
+    std::cout << "[DEBUG] BrneInstruction executed. $2 = " << regs->getRegister(src1) 
+              << ", $0 = " << regs->getRegister(src2) << ", offset = " << offset << std::endl;
+    
     if (regs->getRegister(src1) != regs->getRegister(src2)) {
+        std::cout << "[DEBUG] Branching to PC: " << (regs->getPC() + offset) << std::endl;
         return regs->getPC() + offset;  // Jump back to loop
     }
+    
+    std::cout << "[DEBUG] Continuing to next instruction." << std::endl;
     return regs->getPC() + 1;  // Continue normally
 }
