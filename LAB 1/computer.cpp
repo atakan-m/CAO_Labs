@@ -51,6 +51,9 @@ double Computer::calculateExecutionTime( Program prog)  {
     if (totalInstructions == 0) return 0;  
 
     double globalCPI = calculateGlobalCPI();
-    double totalCycles = totalInstructions * globalCPI;
+    double totalCycles =    ((prog.getNumArith() * cpiArith) +
+                            (prog.getNumStore() * cpiStore) +
+                            (prog.getNumLoad() * cpiLoad) +
+                            (prog.getNumBranch() * cpiBranch)) ;
     return totalCycles / (clockRateGHz * 1e9);  // Convert GHz to Hz
 }
