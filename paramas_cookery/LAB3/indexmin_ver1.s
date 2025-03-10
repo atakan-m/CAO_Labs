@@ -1,7 +1,7 @@
 IndexMinimum:
 	move $t1, $a0 #(assuming a0 is int first) #mini = first -> $t1 = mini
 	move $t2, $a1 #(assuming a1 is int last, which corresponds to length array - 1 -> the last index)
-	move $t3, $a3 #(assuming a3 is the base adress of the array)
+	move $t3, $a2 #(assuming a3 is the base adress of the array)
 	#we will change a1, a2, a3 later once we assemble every codes into 1 file, for now I just want to work out the logic
 	
 	move $sp, $t3 #move the stack pointer to the basea adress of the array
