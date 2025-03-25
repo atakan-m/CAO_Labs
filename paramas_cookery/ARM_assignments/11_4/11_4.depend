@@ -1,0 +1,55 @@
+# depslib dependency file v1.0
+1516341282 source:h:\my documents\arm_assignments\11_4\startup.c
+	<stdint.h>
+	"LPC13xx.h"
+
+1516341282 h:\my documents\arm_assignments\11_4\lpc13xx.h
+	"core_cm3.h"
+	"system_LPC13xx.h"
+
+1516341282 h:\my documents\arm_assignments\11_4\core_cm3.h
+	<stdint.h>
+	<core_cmInstr.h>
+	<core_cmFunc.h>
+
+1516341282 h:\my documents\arm_assignments\11_4\system_lpc13xx.h
+	<stdint.h>
+
+1516341282 source:h:\my documents\arm_assignments\11_4\system_lpc13xx.c
+	<stdint.h>
+	"LPC13xx.h"
+
+1742314399 source:h:\my documents\arm_assignments\11_4\main.c
+	"LPC13xx.h"
+
+1516341282 source:\\tudelft.net\student-homes\p\pparamafawwaz\my documents\arm_assignments\11_4\startup.c
+	<stdint.h>
+	"LPC13xx.h"
+
+1516341282 \\tudelft.net\student-homes\p\pparamafawwaz\my documents\arm_assignments\11_4\lpc13xx.h
+	"core_cm3.h"
+	"system_LPC13xx.h"
+
+1516341282 \\tudelft.net\student-homes\p\pparamafawwaz\my documents\arm_assignments\11_4\core_cm3.h
+	<stdint.h>
+	<core_cmInstr.h>
+	<core_cmFunc.h>
+
+1516341282 \\tudelft.net\student-homes\p\pparamafawwaz\my documents\arm_assignments\11_4\system_lpc13xx.h
+	<stdint.h>
+
+1516341282 source:\\tudelft.net\student-homes\p\pparamafawwaz\my documents\arm_assignments\11_4\system_lpc13xx.c
+	<stdint.h>
+	"LPC13xx.h"
+
+1742478004 source:\\tudelft.net\student-homes\p\pparamafawwaz\my documents\arm_assignments\11_4\main.c
+	"LPC13xx.h"
+	"delay.h"
+
+1742303943 source:\\tudelft.net\student-homes\p\pparamafawwaz\my documents\arm_assignments\11_4\delay.c
+	<stdint.h>
+	"LPC13xx.h"
+
+1513593484 \\tudelft.net\student-homes\p\pparamafawwaz\my documents\arm_assignments\11_4\delay.h
+	<stdint.h>
+
