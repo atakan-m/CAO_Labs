@@ -4,7 +4,7 @@ main:
     lui $t0 32768
     ori $t0 $t0 0        #  -2147483648 signed which is the most negative 32 bit
 
-    # 2) Arithmetic shift right by 2 bits
+    # Arithmetic shift right by 2 bits
     sra $t2 $t0 2        # Should sign-extend. For -2147483648 the result = -536870912 (0xE0000000)
 
     # 3) Load 0x12345678 into $t3  0x1234 = 4660 decimal,  0x5678 = 22136 decimal
