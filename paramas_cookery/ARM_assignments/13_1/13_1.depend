@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1422956056 source:h:\my documents\arm_assignments\13_1\leddriver.c
+	<stdint.h>
+	"LPC13xx.h"
+	"leddriver.h"
+
+1516344882 h:\my documents\arm_assignments\13_1\lpc13xx.h
+	"core_cm3.h"
+	"system_LPC13xx.h"
+
+1516344882 h:\my documents\arm_assignments\13_1\core_cm3.h
+	<stdint.h>
+	<core_cmInstr.h>
+	<core_cmFunc.h>
+
+1516344882 h:\my documents\arm_assignments\13_1\system_lpc13xx.h
+	<stdint.h>
+
+1422956056 h:\my documents\arm_assignments\13_1\leddriver.h
+	<stdint.h>
+
+1516344882 source:h:\my documents\arm_assignments\13_1\startup.c
+	<stdint.h>
+	"LPC13xx.h"
+
+1516344882 source:h:\my documents\arm_assignments\13_1\system_lpc13xx.c
+	<stdint.h>
+	"LPC13xx.h"
+
+1743524435 source:h:\my documents\arm_assignments\13_1\main.c
+	"LPC13xx.h"
+	"leddriver.h"
+
