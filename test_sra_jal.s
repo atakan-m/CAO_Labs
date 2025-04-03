@@ -44,8 +44,7 @@ main:
     jal conditional_jump     # Jump based on parameter
     
     # End of test program
-    ori $v0, $zero, 10      # Exit syscall
-    syscall
+   j end
 
 test_function1:
     jr $ra                  # Return to caller
