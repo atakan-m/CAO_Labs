@@ -1,9 +1,6 @@
 # Test Program for SRA and JAL Instructions
 # Using only decimal numbers for compatibility
 
-.text
-.globl main
-
 main:
     # Test SRA instruction with various cases
     
@@ -68,3 +65,6 @@ jump_target1:
     
 jump_target2:
     jr $ra
+
+end:
+	j end
